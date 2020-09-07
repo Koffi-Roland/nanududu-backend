@@ -11,7 +11,7 @@ use FOS\RestBundle\View\View;
 class DefaultController  extends AbstractFOSRestController
 {
     /**
-     * @Rest\Get("/accueil")
+     * @Rest\Get("/")
      */
     public function home()
     {
