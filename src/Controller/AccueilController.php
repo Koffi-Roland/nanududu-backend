@@ -7,18 +7,19 @@ use Symfony\Component\Routing\Annotation\Route;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\View\View;
+use App\Service\Common\MessageService;
 
-class DefaultController  extends AbstractFOSRestController
+class AccueilController  extends AbstractFOSRestController
 {
     /**
      * @Rest\Get("/")
      */
-    public function home()
+    public function home(MessageService $messageService)
     {
 
         $data['message'] = 'Bienvenue sur la plateforme nanududu!';
         $data['version'] = '1.0';
 
-        return $data;
+        return $messageService->successRequest($data);
     }
 }
