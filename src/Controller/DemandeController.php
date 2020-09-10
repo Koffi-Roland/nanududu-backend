@@ -10,7 +10,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\View\View;
-use App\Service\Nanududu\TagService;
 
 /**
  * @Route("/demande")
