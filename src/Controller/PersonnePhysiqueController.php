@@ -26,4 +26,13 @@ class PersonnePhysiqueController extends AbstractFOSRestController
        
     }
 
+       /**
+     * @Rest\Post("/ajout")
+     */
+    public function ajouter(PersonnePhysiqueService $personnePhysiqueService,Request $request)
+    {
+        return  $personnePhysiqueService->ajouter($request->get('nom'),$request->get('prenom'),$request->get('identifiant'),$request->get('motDePasse'),$request->get('telephone'),$request->get('ville'),$request->get('adresse'),$request->get('aggree'),$request->get('roles'));
+       
+    }
+
 }

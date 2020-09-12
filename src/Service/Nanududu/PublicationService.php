@@ -4,15 +4,12 @@ namespace App\Service\Nanududu;
 
 use App\Service\Query\ValidationService;
 use App\Service\Common\MessageService;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Serializer\SerializerInterface;
 use App\Repository\PublicationRepository;
 use App\Entity\Publication;
 use App\Entity\PersonnePhysique;
 
-use Exception;
-use Symfony\Component\Serializer\Exception\NotEncodableValueException;
+
 
 class PublicationService
 {
@@ -39,9 +36,25 @@ class PublicationService
         return $this->messageService->successRequest($this->publicationRepository->findAll());
     }
 
+    public function publierParPersonne(PersonnePhysique $personne)
+    {
+        return $this->messageService->successRequest($this->publicationRepository->findByUserPublication($personne));
+    }
+
+    public function dernierePublication()
+    {
+        return $this->messageService->successRequest($this->publicationRepository->findByLastPublication());
+    }
+
     public function details(int $id)
     {
         return $this->messageService->successRequest($this->publicationRepository->find($id));
+
+    }
+
+    public function detailsObject(int $id):?Publication
+    {
+        return $this->publicationRepository->find($id);
 
     }
 

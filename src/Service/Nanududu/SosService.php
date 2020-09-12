@@ -56,7 +56,7 @@ class SosService
         $sos->addTag($tag);
         $this->em->persist($sos);
         $this->em->flush();
-        return $this->messageService->successRequest($this->sosRepository->find($sos));
+        return $this->messageService->successRequest($sos);
 
         //}catch(Exc){
         // return $this->messageService->execptionRequest($e);

@@ -47,6 +47,12 @@ class PersonnePhysiqueService
 
     }
 
+    public function detailsObject(int $id):?PersonnePhysique
+    {
+        return  $this->personnePhysiqueRepository->find($id);
+
+    }
+
 
     public function ajouter(string $nom, string $prenom,string $identifiant, string $motDePasse, $telephone , string $ville, $adresse , bool $aggree,array $roles)
     {
@@ -55,6 +61,7 @@ class PersonnePhysiqueService
             $personnePhysique->setVille($ville);
             $personnePhysique->setNom($nom);
             $personnePhysique->setPrenom($prenom);
+            $personnePhysique->setTelephone($telephone);
             $personnePhysique->setIdentifiant($identifiant);
             $personnePhysique->setMotDePasse($motDePasse);
             $personnePhysique->setRoles($roles);

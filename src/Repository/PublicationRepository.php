@@ -19,22 +19,36 @@ class PublicationRepository extends ServiceEntityRepository
         parent::__construct($registry, Publication::class);
     }
 
-    // /**
-    //  * @return Publication[] Returns an array of Publication objects
-    //  */
-    /*
-    public function findByExampleField($value)
+     /**
+      * @return Publication[] Returns an array of Publication objects
+      */
+    
+    public function findByLastPublication()
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults(8)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult() ;
     }
-    */
+
+
+
+      /**
+      * @return Publication[] Returns an array of Publication objects
+      */
+    
+      public function findByUserPublication($personne)
+      {
+          return $this->createQueryBuilder('p')
+              ->andWhere('p.personnePhysique = :personne')
+              ->setParameter('val', $personne)
+              ->orderBy('p.id', 'DESC')
+              ->getQuery()
+              ->getResult()
+          ;
+      }
+    
 
     /*
     public function findOneBySomeField($value): ?Publication

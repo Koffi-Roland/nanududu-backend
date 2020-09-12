@@ -26,4 +26,13 @@ class TagController extends AbstractFOSRestController
        
     }
 
+        /**
+     * @Rest\Get("/ajout")
+     */
+    public function ajout(TagService $tagService,Request $request)
+    {
+        return  $tagService->ajouter($request->get('libelle'),$request->get('description'));
+       
+    }
+
 }

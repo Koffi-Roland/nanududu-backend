@@ -43,6 +43,12 @@ class TagService
 
     }
 
+    public function detailsObject(int $id):?Tag
+    {
+        return $this->tagRepository->find($id);
+
+    }
+
 
     public function ajouter(string $libelle, string $description)
     {

@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Publication;
 use App\Repository\PublicationRepository;
+use App\Service\Nanududu\PersonnePhysiqueService;
+use App\Service\Nanududu\PublicationService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,6 +25,15 @@ class SouscriptionController extends AbstractFOSRestController
     public function liste(SOuscriptionService $souscriptionService)
     {
         return  $souscriptionService->liste();
+       
+    }
+
+     /**
+     * @Rest\Post("/ajout")
+     */
+    public function souscrire(PersonnePhysiqueService $personnePhysiqueService, SOuscriptionService $souscriptionService,PublicationService $publicationService,Request $request)
+    {
+        return  $souscriptionService->souscrire($personnePhysiqueService->detailsObject($request->get('personne')),$request->get('date'),$publicationService->detailsObject($request->get('publication')),$request->get('etat'));
        
     }
 
