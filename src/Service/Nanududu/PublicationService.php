@@ -8,8 +8,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\PublicationRepository;
 use App\Entity\Publication;
 use App\Entity\PersonnePhysique;
-
-
+use DateTimeImmutable;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class PublicationService
 {
@@ -59,9 +59,11 @@ class PublicationService
     }
 
 
-    public function ajouter(string $libelle, string $description, \DateTimeInterface $date, \DateTimeInterface $expiration, PersonnePhysique $personne)
+    public function ajouter(string $libelle, string $description, string $date, string $expiration, PersonnePhysique $personne)
     {
         //try{
+    
+
         $publication = new Publication();
         $publication->setLibelle($libelle);
         $publication->setDescription($description);
@@ -79,7 +81,7 @@ class PublicationService
     }
 
 
-    public function mettreAJour(int $id, string $libelle, string $description, \DateTimeInterface $date, \DateTimeInterface $expiration)
+    public function mettreAJour(int $id, string $libelle, string $description, string $date, string $expiration)
     {
         $publication = $this->publicationRepository->find($id);
         if (!$publication) {

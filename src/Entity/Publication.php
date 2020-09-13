@@ -20,12 +20,12 @@ class Publication
     private $id;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string", length=255)
      */
     private $date;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string", length=255)
      */
     private $expiration;
 
@@ -66,24 +66,24 @@ class Publication
         return $this->id;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getDate(): ?string
     {
         return $this->date;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setDate(string $date): self
     {
         $this->date = $date;
 
         return $this;
     }
 
-    public function getExpiration(): ?\DateTimeInterface
+    public function getExpiration(): ?string
     {
         return $this->expiration;
     }
 
-    public function setExpiration(\DateTimeInterface $expiration): self
+    public function setExpiration(string $expiration): self
     {
         $this->expiration = $expiration;
 

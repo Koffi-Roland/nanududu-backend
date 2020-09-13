@@ -27,7 +27,7 @@ class TagController extends AbstractFOSRestController
     }
 
         /**
-     * @Rest\Get("/ajout")
+     * @Rest\Post("/ajout")
      */
     public function ajout(TagService $tagService,Request $request)
     {
