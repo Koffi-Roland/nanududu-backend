@@ -15,7 +15,7 @@ use FOS\RestBundle\View\View;
 use App\Service\Nanududu\SouscriptionService;
 
 /**
- * @Route("/souscription")
+ * @Route("/api/souscription")
  */
 class SouscriptionController extends AbstractFOSRestController
 {

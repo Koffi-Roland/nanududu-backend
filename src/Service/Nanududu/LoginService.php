@@ -39,11 +39,12 @@ class LoginService
    public function login(string $identifiant,string $motDePasse)
    {
 
+
     $personnePhysique=  $this->personnePhysiqueRepository->findOneByIdentifiant($identifiant); 
-    
     if(password_verify($motDePasse,$personnePhysique->getPassword())){
-        $this->messageService->successRequest($personnePhysique);
-    }else return null;
+       return $this->messageService->successRequest($personnePhysique);
+    }
+    else return ;
    }
  
 

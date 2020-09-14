@@ -15,7 +15,7 @@ use App\Service\Nanududu\SosService;
 use App\Service\Nanududu\TagService;
 
 /**
- * @Route("/sos")
+ * @Route("/api/sos")
  */
 class SosController extends AbstractFOSRestController
 {

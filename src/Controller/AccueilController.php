@@ -12,7 +12,7 @@ use App\Service\Common\MessageService;
 class AccueilController  extends AbstractFOSRestController
 {
     /**
-     * @Rest\Get("/")
+     * @Rest\Get("/api/home")
      */
     public function home(MessageService $messageService)
     {

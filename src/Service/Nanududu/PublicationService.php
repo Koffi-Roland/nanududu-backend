@@ -33,7 +33,8 @@ class PublicationService
 
     public function liste()
     {
-        return $this->messageService->successRequest($this->publicationRepository->findAll());
+        return  $this->publicationRepository->findAll();
+       // return $this->messageService->successRequest($this->publicationRepository->findAll());
     }
 
     public function publierParPersonne(PersonnePhysique $personne)
@@ -43,7 +44,9 @@ class PublicationService
 
     public function dernierePublication()
     {
-        return $this->messageService->successRequest($this->publicationRepository->findByLastPublication());
+
+        return  $this->publicationRepository->findByLastPublication();
+     // return $this->messageService->successRequest($this->publicationRepository->findByLastPublication());
     }
 
     public function details(int $id)

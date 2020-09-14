@@ -15,7 +15,7 @@ use FOS\RestBundle\View\View;
 use App\Service\Nanududu\PublicationService;
 
 /**
- * @Route("/publication")
+ * @Route("/api/publication")
  */
 class PublicationController extends AbstractFOSRestController
 {

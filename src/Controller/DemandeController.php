@@ -12,7 +12,7 @@ use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\View\View;
 
 /**
- * @Route("/demande")
+ * @Route("/api/demande")
  */
 class DemandeController extends AbstractFOSRestController
 {

@@ -13,7 +13,7 @@ use FOS\RestBundle\View\View;
 use App\Service\Nanududu\TagService;
 
 /**
- * @Route("/tag")
+ * @Route("/api/tag")
  */
 class TagController extends AbstractFOSRestController
 {

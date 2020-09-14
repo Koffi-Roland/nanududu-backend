@@ -31,7 +31,7 @@ class PersonnePhysique extends Personne implements UserInterface
     private $prenom;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255,unique=true)
      */
     private $identifiant;
 
@@ -47,7 +47,7 @@ class PersonnePhysique extends Personne implements UserInterface
     private $roles = [];
 
     /**
-     * @ORM\Column(type="string", length=15)
+     * @ORM\Column(type="string", length=15,unique=true)
      */
     private $telephone;
 

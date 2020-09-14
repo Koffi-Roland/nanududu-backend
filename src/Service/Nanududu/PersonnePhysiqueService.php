@@ -54,22 +54,26 @@ class PersonnePhysiqueService
     }
 
 
-    public function ajouter(string $nom, string $prenom,string $identifiant, string $motDePasse, $telephone , string $ville, $adresse , bool $aggree,array $roles)
+    public function ajouter(string $nom, string $prenom,string $identifiant, string $motDePasse, $telephone ,/* string $ville,*/  string $adresse , bool $aggree,array $roles)
     {
         //try{
             $personnePhysique = new PersonnePhysique();
-            $personnePhysique->setVille($ville);
+           // $personnePhysique->setVille($ville);
             $personnePhysique->setNom($nom);
             $personnePhysique->setPrenom($prenom);
             $personnePhysique->setTelephone($telephone);
             $personnePhysique->setIdentifiant($identifiant);
-            $personnePhysique->setMotDePasse($motDePasse);
+            $personnePhysique->setPassword(password_hash($motDePasse, PASSWORD_BCRYPT));
             $personnePhysique->setRoles($roles);
             $personnePhysique->setAggree($aggree);
             $personnePhysique->setAdresse($adresse);
        
         $this->em->persist($personnePhysique);
         $this->em->flush();
+
+      //  dump( $personnePhysique->getId());exit(1);
+
+       dump( $this->personnePhysiqueRepository->findOneByIdentity($personnePhysique->getIdentifiant()));exit(1);
         return $this->messageService->successRequest($personnePhysique);
         //}catch(Exc){
         // return $this->messageService->execptionRequest($e);

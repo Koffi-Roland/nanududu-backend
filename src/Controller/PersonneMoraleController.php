@@ -13,7 +13,7 @@ use FOS\RestBundle\View\View;
 use App\Service\Nanududu\PersonneMoraleService;
 
 /**
- * @Route("/personnemorale")
+ * @Route("/api/personnemorale")
  */
 class PersonneMoraleController extends AbstractFOSRestController
 {

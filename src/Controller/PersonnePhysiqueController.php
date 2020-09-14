@@ -13,7 +13,7 @@ use FOS\RestBundle\View\View;
 use App\Service\Nanududu\PersonnePhysiqueService;
 
 /**
- * @Route("/personnephysique")
+ * @Route("/api/personnephysique")
  */
 class PersonnePhysiqueController extends AbstractFOSRestController
 {
@@ -32,7 +32,7 @@ class PersonnePhysiqueController extends AbstractFOSRestController
     public function ajouter(PersonnePhysiqueService $personnePhysiqueService,Request $request)
     {
 
-        return  $personnePhysiqueService->ajouter($request->get('nom'),$request->get('prenom'),$request->get('identifiant'),$request->get('motDePasse'),$request->get('telephone'),$request->get('ville'),$request->get('adresse'),$request->get('aggree'),$request->get('roles'));
+        return  $personnePhysiqueService->ajouter($request->get('nom'),$request->get('prenom'),$request->get('identifiant'),$request->get('motDePasse'),$request->get('telephone'),/*$request->get('ville'),*/$request->get('adresse'),$request->get('aggree'),$request->get('roles'));
        
     }
 
