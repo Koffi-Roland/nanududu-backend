@@ -30,7 +30,6 @@ class PublicationService
         $this->messageService=$messageService;
     }
 
-
     public function liste()
     {
         return  $this->publicationRepository->findAll();
@@ -64,8 +63,6 @@ class PublicationService
 
     public function ajouter(string $libelle, string $description, string $date, string $expiration, PersonnePhysique $personne)
     {
-        //try{
-    
 
         $publication = new Publication();
         $publication->setLibelle($libelle);
@@ -76,11 +73,7 @@ class PublicationService
         $this->em->persist($publication);
         $this->em->flush();
         return $this->messageService->successRequest($publication);
-        //}catch(Exc){
-        // return $this->messageService->execptionRequest($e);
-
-        //}   
-
+      
     }
 
 
