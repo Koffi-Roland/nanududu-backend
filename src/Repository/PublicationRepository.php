@@ -42,7 +42,7 @@ class PublicationRepository extends ServiceEntityRepository
       {
           return $this->createQueryBuilder('p')
               ->andWhere('p.personnePhysique = :personne')
-              ->setParameter('val', $personne)
+              ->setParameter('personne', $personne)
               ->orderBy('p.id', 'DESC')
               ->getQuery()
               ->getResult()

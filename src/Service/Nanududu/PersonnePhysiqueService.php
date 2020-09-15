@@ -38,7 +38,9 @@ class PersonnePhysiqueService
 
     public function liste()
     {
-        return $this->messageService->successRequest($this->personnePhysiqueRepository->findAll());
+
+       return $this->personnePhysiqueRepository->findAll();
+      //  return $this->messageService->successRequest($this->personnePhysiqueRepository->findAll());
     }
 
     public function details(int $id)
@@ -53,7 +55,11 @@ class PersonnePhysiqueService
 
     }
 
+    public function detailsObjectByTelephone(string $telephone):?PersonnePhysique
+    {
+        return $this->personnePhysiqueRepository->findOneByTelephone($telephone);
 
+    }
     public function ajouter(string $nom, string $prenom,string $identifiant, string $motDePasse, $telephone ,/* string $ville,*/  string $adresse , bool $aggree,array $roles)
     {
         //try{
@@ -71,9 +77,7 @@ class PersonnePhysiqueService
         $this->em->persist($personnePhysique);
         $this->em->flush();
 
-      //  dump( $personnePhysique->getId());exit(1);
 
-       dump( $this->personnePhysiqueRepository->findOneByIdentity($personnePhysique->getIdentifiant()));exit(1);
         return $this->messageService->successRequest($personnePhysique);
         //}catch(Exc){
         // return $this->messageService->execptionRequest($e);

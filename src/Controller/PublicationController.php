@@ -29,13 +29,29 @@ class PublicationController extends AbstractFOSRestController
     }
 
       /**
+     * @Rest\Get("/list/mespublications")
+     */
+    public function mesPublication(Request $request,PublicationService $publicationService,PersonnePhysiqueService $personnePhysiqueService)
+    {
+
+       /* dump($request->query->get('telephone'));
+        dump(  $request->get('telephone'));exit(1);*/
+
+      
+        return  $publicationService->publierParPersonne($personnePhysiqueService->detailsObjectByTelephone($request->query->get('telephone')));
+       
+    }
+
+
+        /**
      * @Rest\Get("/list/derniere")
      */
-    public function dernierePublication(PublicationService $publicationService)
+    public function dernierePublication(PublicationService $publicationService,Request $request)
     {
         return  $publicationService->dernierePublication();
        
     }
+
 
 
       /**
@@ -44,7 +60,7 @@ class PublicationController extends AbstractFOSRestController
     public function ajouter(PublicationService $publicationService,PersonnePhysiqueService $personnePhysiqueService,Request $request)
 
     {
-        return  $publicationService->ajouter($request->get('libelle'),$request->get('description'),$request->get('date'),$request->get('expiration'),$personnePhysiqueService->detailsObject($request->get('personne')));
+        return  $publicationService->ajouter($request->get('libelle'),$request->get('description'),$request->get('date'),$request->get('expiration'),$personnePhysiqueService->detailsObjectByTelephone($request->get('personne')));
 
        
     }

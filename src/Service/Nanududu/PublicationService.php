@@ -38,7 +38,8 @@ class PublicationService
 
     public function publierParPersonne(PersonnePhysique $personne)
     {
-        return $this->messageService->successRequest($this->publicationRepository->findByUserPublication($personne));
+        return $this->publicationRepository->findByUserPublication($personne);
+       // return $this->messageService->successRequest($this->publicationRepository->findByUserPublication($personne));
     }
 
     public function dernierePublication()
@@ -59,6 +60,7 @@ class PublicationService
         return $this->publicationRepository->find($id);
 
     }
+
 
 
     public function ajouter(string $libelle, string $description, string $date, string $expiration, PersonnePhysique $personne)
